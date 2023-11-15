@@ -3,6 +3,20 @@
 This is a plugin that aims to provide a community driven library of [LuaSnip](https://github.com/L3MON4D3/LuaSnip) snipets and also make it easy to add LuaSnip snippets to neovim
 
 ## Installation
+### [lazy.nvim](https://github.com/folke/lazy.nvim)
+
+```lua
+{ 
+  "dozken/LuaSnip-snippets.nvim",
+  dependencies = {
+    "L3MON4D3/LuaSnip"
+  },
+  config = function()
+    local luasnip = require "luasnip"
+    luasnip.snippets = require("luasnip_snippets").load_snippets()
+  end
+}
+```
 
 The following is an [example](https://github.com/NTBBloodbath/doom-nvim/blob/main/lua/doom/modules/init.lua) of how LuaSnip is installed in [doom-nvim](https://github.com/NTBBloodbath/doom-nvim) with the [packer](https://github.com/wbthomason/packer.nvim) package manager.
 
@@ -49,7 +63,7 @@ return function()
     local luasnip = require("luasnip")
 
     -- be sure to load this first since it overwrites the snippets table.
-    luasnip.snippets = require("luasnip-snippets").load_snippets()
+    luasnip.snippets = require("luasnip_snippets").load_snippets()
 
     ...
     ...
